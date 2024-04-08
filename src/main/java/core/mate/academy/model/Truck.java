@@ -5,10 +5,10 @@ package core.mate.academy.model;
  * Do not remove no-field constructor
  */
 public class Truck extends Machine {
-    private int power;
+    private boolean hasTrailer;
 
-    public Truck(int power) {
-        this.power = power;
+    public Truck(boolean hasTrailer) {
+        this.hasTrailer = hasTrailer;
     }
 
     public Truck() {
@@ -19,11 +19,11 @@ public class Truck extends Machine {
         System.out.println("Truck started to work");
     }
 
-    public int getPower() {
-        return power;
+    public boolean isHasTrailer() {
+        return hasTrailer;
     }
 
-    public void setPower(int power) {
-        this.power = power;
+    public void setHasTrailer(boolean hasTrailer) {
+        this.hasTrailer = hasTrailer;
     }
 }

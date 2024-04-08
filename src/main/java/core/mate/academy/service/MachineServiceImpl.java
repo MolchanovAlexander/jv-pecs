@@ -12,20 +12,25 @@ import java.util.Collections;
 import java.util.List;
 
 public class MachineServiceImpl implements MachineService<Machine> {
+    private final BulldozerProducer bulldozerProducer = new BulldozerProducer();
+    private final ExcavatorProducer excavatorProducer = new ExcavatorProducer();
+    private final TruckProducer truckProducer = new TruckProducer();
 
     @Override
     public List<Machine> getAll(Class<? extends Machine> type) {
-        MachineProducer<? extends Machine> producer = null;
+        List<? extends Machine> machines = null;
         if (type == Bulldozer.class) {
-            producer = new BulldozerProducer();
+            machines = bulldozerProducer.get();
+            return new ArrayList<>(machines);
         } else if (type == Excavator.class) {
-            producer = new ExcavatorProducer();
+            machines = excavatorProducer.get();
+            return new ArrayList<>(machines);
         } else if (type == Truck.class) {
-            producer = new TruckProducer();
+            machines = truckProducer.get();
+            return new ArrayList<>(machines);
         } else {
             return new ArrayList<>();
         }
-        return (List<Machine>) producer.get();
     }
 
     @Override

@@ -6,21 +6,21 @@ package core.mate.academy.model;
  */
 public class Excavator extends Machine {
 
-    private int power;
+    private int year;
 
     public Excavator() {
     }
 
-    public Excavator(int power) {
-        this.power = power;
+    public Excavator(int year) {
+        this.year = year;
     }
 
     public int getPower() {
-        return power;
+        return year;
     }
 
-    public void setPower(int power) {
-        this.power = power;
+    public void setPower(int year) {
+        this.year = year;
     }
 
     @Override
